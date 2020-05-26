@@ -13,6 +13,19 @@
 		C62365E9247D6AD00015F20D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62365E7247D6AD00015F20D /* Main.storyboard */; };
 		C62365EB247D6AD20015F20D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62365EA247D6AD20015F20D /* Assets.xcassets */; };
 		C62365EE247D6AD20015F20D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62365EC247D6AD20015F20D /* LaunchScreen.storyboard */; };
+		C6236601247D6E490015F20D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236600247D6E490015F20D /* Constants.swift */; };
+		C6236603247D6EB10015F20D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236602247D6EB10015F20D /* Keys.swift */; };
+		C6236605247D6FBE0015F20D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236604247D6FBE0015F20D /* Theme.swift */; };
+		C6236607247D70610015F20D /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236606247D70610015F20D /* Obfuscator.swift */; };
+		C6236609247D707D0015F20D /* AppAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236608247D707D0015F20D /* AppAnimation.swift */; };
+		C6236610247D71C70015F20D /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623660F247D71C70015F20D /* UIView+Animation.swift */; };
+		C6236612247D71E80015F20D /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236611247D71E80015F20D /* UIView+Helpers.swift */; };
+		C6236614247D720F0015F20D /* Storyboard+ViewControllerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236613247D720F0015F20D /* Storyboard+ViewControllerCreation.swift */; };
+		C6236617247D72480015F20D /* UIViewController+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6236616247D72480015F20D /* UIViewController+Root.swift */; };
+		C62CBDBC247D746800C86B00 /* roboto_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C62CBDB8247D746800C86B00 /* roboto_bold.ttf */; };
+		C62CBDBD247D746800C86B00 /* roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C62CBDB9247D746800C86B00 /* roboto_medium.ttf */; };
+		C62CBDBE247D746800C86B00 /* roboto_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C62CBDBA247D746800C86B00 /* roboto_light.ttf */; };
+		C62CBDC0247D747200C86B00 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62CBDBF247D747200C86B00 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +37,19 @@
 		C62365EA247D6AD20015F20D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C62365ED247D6AD20015F20D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C62365EF247D6AD20015F20D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6236600247D6E490015F20D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C6236602247D6EB10015F20D /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C6236604247D6FBE0015F20D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C6236606247D70610015F20D /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
+		C6236608247D707D0015F20D /* AppAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAnimation.swift; sourceTree = "<group>"; };
+		C623660F247D71C70015F20D /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		C6236611247D71E80015F20D /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		C6236613247D720F0015F20D /* Storyboard+ViewControllerCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+ViewControllerCreation.swift"; sourceTree = "<group>"; };
+		C6236616247D72480015F20D /* UIViewController+Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Root.swift"; sourceTree = "<group>"; };
+		C62CBDB8247D746800C86B00 /* roboto_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_bold.ttf; sourceTree = "<group>"; };
+		C62CBDB9247D746800C86B00 /* roboto_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_medium.ttf; sourceTree = "<group>"; };
+		C62CBDBA247D746800C86B00 /* roboto_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_light.ttf; sourceTree = "<group>"; };
+		C62CBDBF247D747200C86B00 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +82,164 @@
 		C62365E0247D6AD00015F20D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				C62365E1247D6AD00015F20D /* AppDelegate.swift */,
-				C62365E3247D6AD00015F20D /* SceneDelegate.swift */,
-				C62365E5247D6AD00015F20D /* ViewController.swift */,
-				C62365E7247D6AD00015F20D /* Main.storyboard */,
-				C62365EA247D6AD20015F20D /* Assets.xcassets */,
-				C62365EC247D6AD20015F20D /* LaunchScreen.storyboard */,
-				C62365EF247D6AD20015F20D /* Info.plist */,
+				C62365F5247D6BC80015F20D /* AppDelegate */,
+				C62365FD247D6C9A0015F20D /* ViewControllers */,
+				C62365FB247D6C5A0015F20D /* ViewModels */,
+				C62365F7247D6BE90015F20D /* Models */,
+				C62365FC247D6C630015F20D /* Views */,
+				C62365F8247D6BF10015F20D /* Networking */,
+				C62365F6247D6BE00015F20D /* Helpers */,
+				C62365F9247D6BF90015F20D /* Resources */,
+				C62365FA247D6C030015F20D /* SupportFiles */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		C62365F5247D6BC80015F20D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C62365E1247D6AD00015F20D /* AppDelegate.swift */,
+				C62365E3247D6AD00015F20D /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C62365F6247D6BE00015F20D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C623660B247D70C10015F20D /* DependencyInjection */,
+				C623660A247D70AA0015F20D /* Extensions */,
+				C62365FF247D6E3B0015F20D /* Constants */,
+				C6236606247D70610015F20D /* Obfuscator.swift */,
+				C6236608247D707D0015F20D /* AppAnimation.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C62365F7247D6BE90015F20D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C62365F8247D6BF10015F20D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C62365F9247D6BF90015F20D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C623660D247D70EA0015F20D /* Fonts */,
+				C623660C247D70E10015F20D /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C62365FA247D6C030015F20D /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C62365FE247D6DF90015F20D /* Storyboards */,
+				C62365EF247D6AD20015F20D /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		C62365FB247D6C5A0015F20D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C62365FC247D6C630015F20D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C62365FD247D6C9A0015F20D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C62365E5247D6AD00015F20D /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C62365FE247D6DF90015F20D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C62365EC247D6AD20015F20D /* LaunchScreen.storyboard */,
+				C62365E7247D6AD00015F20D /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C62365FF247D6E3B0015F20D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C6236600247D6E490015F20D /* Constants.swift */,
+				C6236602247D6EB10015F20D /* Keys.swift */,
+				C6236604247D6FBE0015F20D /* Theme.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C623660A247D70AA0015F20D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C6236615247D72330015F20D /* UIViewController */,
+				C623660E247D71B70015F20D /* UIView */,
+				C6236613247D720F0015F20D /* Storyboard+ViewControllerCreation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C623660B247D70C10015F20D /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		C623660C247D70E10015F20D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C62CBDBF247D747200C86B00 /* Colors.xcassets */,
+				C62365EA247D6AD20015F20D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C623660D247D70EA0015F20D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C62CBDB8247D746800C86B00 /* roboto_bold.ttf */,
+				C62CBDBA247D746800C86B00 /* roboto_light.ttf */,
+				C62CBDB9247D746800C86B00 /* roboto_medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C623660E247D71B70015F20D /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				C623660F247D71C70015F20D /* UIView+Animation.swift */,
+				C6236611247D71E80015F20D /* UIView+Helpers.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		C6236615247D72330015F20D /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C6236616247D72480015F20D /* UIViewController+Root.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +302,11 @@
 			files = (
 				C62365EE247D6AD20015F20D /* LaunchScreen.storyboard in Resources */,
 				C62365EB247D6AD20015F20D /* Assets.xcassets in Resources */,
+				C62CBDBD247D746800C86B00 /* roboto_medium.ttf in Resources */,
 				C62365E9247D6AD00015F20D /* Main.storyboard in Resources */,
+				C62CBDC0247D747200C86B00 /* Colors.xcassets in Resources */,
+				C62CBDBC247D746800C86B00 /* roboto_bold.ttf in Resources */,
+				C62CBDBE247D746800C86B00 /* roboto_light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +317,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6236612247D71E80015F20D /* UIView+Helpers.swift in Sources */,
 				C62365E6247D6AD00015F20D /* ViewController.swift in Sources */,
+				C6236617247D72480015F20D /* UIViewController+Root.swift in Sources */,
 				C62365E2247D6AD00015F20D /* AppDelegate.swift in Sources */,
+				C6236610247D71C70015F20D /* UIView+Animation.swift in Sources */,
+				C6236614247D720F0015F20D /* Storyboard+ViewControllerCreation.swift in Sources */,
 				C62365E4247D6AD00015F20D /* SceneDelegate.swift in Sources */,
+				C6236605247D6FBE0015F20D /* Theme.swift in Sources */,
+				C6236601247D6E490015F20D /* Constants.swift in Sources */,
+				C6236603247D6EB10015F20D /* Keys.swift in Sources */,
+				C6236609247D707D0015F20D /* AppAnimation.swift in Sources */,
+				C6236607247D70610015F20D /* Obfuscator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3MRF55H66;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WeatherApp/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3MRF55H66;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WeatherApp/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
