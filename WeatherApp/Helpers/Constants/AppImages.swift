@@ -12,4 +12,12 @@ enum Images: String {
   case sun
   case cloud
   case moon
+  case target
+  case snowy
+  case wind
+  case rainy
+  case shootingStar = "shooting_star"
+  case thunderstorm
+  case foog
+  case unknown
 }

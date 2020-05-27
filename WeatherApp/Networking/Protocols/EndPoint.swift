@@ -34,10 +34,12 @@ extension EndPoint {
     var urlComponents = URLComponents()
     urlComponents.scheme = Constants.urls.scheme
     urlComponents.host = Constants.urls.host
-    urlComponents.path = path
+    urlComponents.path = "\(Constants.urls.path)\(path)"
     if method == .get {
       urlComponents.queryItems = parameters
         .map({ URLQueryItem(name: $0.key, value: "\($0.value)") })
+      let appid = Obfuscator.deObfuscate(Keys.apiKey)
+      urlComponents.queryItems?.append(URLQueryItem(name: "appid", value: appid))
     }
     
     guard let url = urlComponents.url else {

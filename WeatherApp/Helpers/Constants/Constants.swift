@@ -11,8 +11,9 @@ import Foundation
 enum Constants {
   
   enum urls {
-    static let host = ""
-    static let scheme = "http"
+    static let host = "api.openweathermap.org"
+    static let scheme = "https"
+    static let path = "/data/2.5/"
   }
   
   enum errors {

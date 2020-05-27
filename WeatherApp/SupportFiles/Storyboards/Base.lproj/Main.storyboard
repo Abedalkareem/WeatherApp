@@ -10,6 +10,7 @@
         <!--Main View Controller-->
         <scene sceneID="42R-u1-hk9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NED-rp-Gww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MainViewController" id="Syx-UV-ghH" customClass="MainViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jma-8x-yGT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -20,18 +21,43 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-7F-2y7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GY1-zl-3yC" customClass="AppInput" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="30" width="374" height="66"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="800" constant="60" id="7zG-S8-R5S"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="main_screen_text_placeholder"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFj-Xh-4u7" customClass="CitiesView" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="116" width="374" height="682"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="oFj-Xh-4u7" firstAttribute="top" secondItem="GY1-zl-3yC" secondAttribute="bottom" constant="20" id="1Ik-RD-NAH"/>
+                                    <constraint firstAttribute="bottom" secondItem="oFj-Xh-4u7" secondAttribute="bottom" constant="20" id="3kf-dF-fri"/>
+                                    <constraint firstItem="GY1-zl-3yC" firstAttribute="top" secondItem="pkG-7F-2y7" secondAttribute="top" constant="30" id="7fh-b6-inr"/>
+                                    <constraint firstItem="oFj-Xh-4u7" firstAttribute="leading" secondItem="pkG-7F-2y7" secondAttribute="leading" constant="20" id="9uf-au-f0f"/>
+                                    <constraint firstItem="GY1-zl-3yC" firstAttribute="centerX" secondItem="pkG-7F-2y7" secondAttribute="centerX" id="KHQ-Uq-vrI"/>
+                                    <constraint firstItem="GY1-zl-3yC" firstAttribute="leading" secondItem="pkG-7F-2y7" secondAttribute="leading" constant="20" id="Rsu-38-lgh"/>
+                                    <constraint firstAttribute="trailing" secondItem="oFj-Xh-4u7" secondAttribute="trailing" constant="20" id="crn-Mb-UIf"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8WU-2c-vqO" firstAttribute="top" secondItem="Jma-8x-yGT" secondAttribute="top" id="NNT-uv-cBC"/>
-                            <constraint firstItem="pkG-7F-2y7" firstAttribute="top" secondItem="Jma-8x-yGT" secondAttribute="top" id="Nza-bH-kdj"/>
+                            <constraint firstItem="pkG-7F-2y7" firstAttribute="top" secondItem="Gg7-Eu-csg" secondAttribute="top" id="Nza-bH-kdj"/>
                             <constraint firstItem="8WU-2c-vqO" firstAttribute="leading" secondItem="Gg7-Eu-csg" secondAttribute="leading" id="cci-n9-nwk"/>
                             <constraint firstAttribute="bottom" secondItem="8WU-2c-vqO" secondAttribute="bottom" id="e4Y-Mk-9dC"/>
                             <constraint firstAttribute="trailing" secondItem="pkG-7F-2y7" secondAttribute="trailing" id="lcl-OV-enQ"/>
-                            <constraint firstAttribute="bottom" secondItem="pkG-7F-2y7" secondAttribute="bottom" id="s3u-54-VEe"/>
+                            <constraint firstItem="Gg7-Eu-csg" firstAttribute="bottom" secondItem="pkG-7F-2y7" secondAttribute="bottom" id="s3u-54-VEe"/>
                             <constraint firstItem="8WU-2c-vqO" firstAttribute="trailing" secondItem="Gg7-Eu-csg" secondAttribute="trailing" id="xIb-AG-nre"/>
                             <constraint firstItem="pkG-7F-2y7" firstAttribute="leading" secondItem="Gg7-Eu-csg" secondAttribute="leading" id="zk9-k1-Kx1"/>
                         </constraints>
@@ -41,7 +67,6 @@
                         <outlet property="timeView" destination="8WU-2c-vqO" id="SYG-AE-bZE"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NED-rp-Gww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-971.01449275362324" y="-364.28571428571428"/>
         </scene>

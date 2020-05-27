@@ -8,3 +8,4 @@
 
 "app_title" = "Weather App";
 "app_slogan" = "Plan your day confidently!";
+"main_screen_text_placeholder" = "Please enter at least 3 cities";
