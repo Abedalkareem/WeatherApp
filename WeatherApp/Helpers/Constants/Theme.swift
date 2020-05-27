@@ -20,6 +20,17 @@ extension UIColor {
   static let textOverSecondary = getColor(named: "Text Over Secondary Color")!
   static let white = getColor(named: "White Color")!
   
+  static let afternoonColor1 = getColor(named: "Afternoon Color 1")!
+  static let afternoonColor2 = getColor(named: "Afternoon Color 2")!
+  static let morningColor1 = getColor(named: "Morning Color 1")!
+  static let morningColor2 = getColor(named: "Morning Color 2")!
+  static let nightColor1 = getColor(named: "Night Color 1")!
+  static let nightColor2 = getColor(named: "Night Color 2")!
+  
+  static let afternoonColors = [afternoonColor1, afternoonColor2]
+  static let morningColors = [morningColor1, morningColor2]
+  static let nightColors = [nightColor1, nightColor2]
+  
   // MARK: - others
   static var text: UIColor {
     return primary
@@ -28,11 +39,7 @@ extension UIColor {
   
   // MARK: - Functions
   private static func getColor(named: String) -> UIColor? {
-    #if TARGET_INTERFACE_BUILDER
-    return UIColor.orange
-    #else
-    return UIColor(named: named)
-    #endif
+    return UIColor(named: named, in: Bundle(for: AppDelegate.self), compatibleWith: nil)
   }
 }
 
@@ -40,13 +47,14 @@ extension UIFont {
   
   // MARK: - Private
   
-  private static var lightFont = "Roboto-Bold"
+  private static var logoFont = "Pacifico-Regular"
+  private static var lightFont = "Roboto-Light"
   private static var mediumFont = "Roboto-Medium"
-  private static var boldFont = "Roboto-Light"
+  private static var boldFont = "Roboto-Bold"
   
   // MARK: - Fonts
   /// Style: Size(55), Weight(Medium)
-  static let appLogo = getFontWith(name: boldFont, size: 55)
+  static let appLogo = getFontWith(name: logoFont, size: 55)
   
   // MARK: Bold
   /// Style: Size(24), Weight(Bold)

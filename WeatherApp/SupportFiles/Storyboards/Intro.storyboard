@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="woA-gE-eTz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="L6X-XY-9cr">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="woA-gE-eTz" customClass="SplashViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vci-ZI-UPp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFu-fb-E9d" customClass="TimeView" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVs-j1-p5r">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QmO-jQ-YFg" customClass="AppLabel" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="186" y="429" width="42" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="Primary Color"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="app_title"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isAppLogo" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jde-HG-qMU" customClass="AppLabel" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="186" y="424" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="Primary Color"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="app_slogan"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="subBodyFont">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="QmO-jQ-YFg" firstAttribute="centerX" secondItem="KVs-j1-p5r" secondAttribute="centerX" id="3vJ-pI-Rnh"/>
+                                    <constraint firstItem="QmO-jQ-YFg" firstAttribute="centerY" secondItem="KVs-j1-p5r" secondAttribute="centerY" constant="-19.25" id="E84-w9-LTL"/>
+                                    <constraint firstItem="Jde-HG-qMU" firstAttribute="centerX" secondItem="KVs-j1-p5r" secondAttribute="centerX" id="S9I-K5-hMa"/>
+                                    <constraint firstItem="Jde-HG-qMU" firstAttribute="top" secondItem="QmO-jQ-YFg" secondAttribute="bottom" constant="-5" id="gsC-L1-3OZ"/>
+                                    <constraint firstItem="Jde-HG-qMU" firstAttribute="width" secondItem="QmO-jQ-YFg" secondAttribute="width" id="q85-dc-Jcn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="KVs-j1-p5r" secondAttribute="bottom" id="7bI-ie-2Js"/>
+                            <constraint firstItem="KVs-j1-p5r" firstAttribute="top" secondItem="vci-ZI-UPp" secondAttribute="top" id="EUk-Hz-yZL"/>
+                            <constraint firstItem="KVs-j1-p5r" firstAttribute="trailing" secondItem="bCN-ai-u64" secondAttribute="trailing" id="FO6-gU-T27"/>
+                            <constraint firstItem="kFu-fb-E9d" firstAttribute="top" secondItem="vci-ZI-UPp" secondAttribute="top" id="O0y-H8-oKH"/>
+                            <constraint firstItem="kFu-fb-E9d" firstAttribute="trailing" secondItem="bCN-ai-u64" secondAttribute="trailing" id="Vzd-cS-6Ga"/>
+                            <constraint firstAttribute="bottom" secondItem="kFu-fb-E9d" secondAttribute="bottom" id="abH-nT-KDy"/>
+                            <constraint firstItem="KVs-j1-p5r" firstAttribute="leading" secondItem="bCN-ai-u64" secondAttribute="leading" id="f4e-Xx-vTQ"/>
+                            <constraint firstItem="kFu-fb-E9d" firstAttribute="leading" secondItem="bCN-ai-u64" secondAttribute="leading" id="mVg-IF-cbX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bCN-ai-u64"/>
+                    </view>
+                    <connections>
+                        <outlet property="timeLapseView" destination="kFu-fb-E9d" id="10H-ly-hKz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWA-nb-jq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="134.59821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Primary Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

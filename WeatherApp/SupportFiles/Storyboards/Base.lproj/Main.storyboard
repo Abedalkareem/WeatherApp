@@ -1,24 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Main View Controller-->
+        <scene sceneID="42R-u1-hk9">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="MainViewController" id="Syx-UV-ghH" customClass="MainViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jma-8x-yGT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WU-2c-vqO" customClass="TimeView" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-7F-2y7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8WU-2c-vqO" firstAttribute="top" secondItem="Jma-8x-yGT" secondAttribute="top" id="NNT-uv-cBC"/>
+                            <constraint firstItem="pkG-7F-2y7" firstAttribute="top" secondItem="Jma-8x-yGT" secondAttribute="top" id="Nza-bH-kdj"/>
+                            <constraint firstItem="8WU-2c-vqO" firstAttribute="leading" secondItem="Gg7-Eu-csg" secondAttribute="leading" id="cci-n9-nwk"/>
+                            <constraint firstAttribute="bottom" secondItem="8WU-2c-vqO" secondAttribute="bottom" id="e4Y-Mk-9dC"/>
+                            <constraint firstAttribute="trailing" secondItem="pkG-7F-2y7" secondAttribute="trailing" id="lcl-OV-enQ"/>
+                            <constraint firstAttribute="bottom" secondItem="pkG-7F-2y7" secondAttribute="bottom" id="s3u-54-VEe"/>
+                            <constraint firstItem="8WU-2c-vqO" firstAttribute="trailing" secondItem="Gg7-Eu-csg" secondAttribute="trailing" id="xIb-AG-nre"/>
+                            <constraint firstItem="pkG-7F-2y7" firstAttribute="leading" secondItem="Gg7-Eu-csg" secondAttribute="leading" id="zk9-k1-Kx1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gg7-Eu-csg"/>
                     </view>
+                    <connections>
+                        <outlet property="timeView" destination="8WU-2c-vqO" id="SYG-AE-bZE"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NED-rp-Gww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-971.01449275362324" y="-364.28571428571428"/>
         </scene>
     </scenes>
 </document>
