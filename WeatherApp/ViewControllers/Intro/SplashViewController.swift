@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
   
   // MARK: - IBOutlets
   

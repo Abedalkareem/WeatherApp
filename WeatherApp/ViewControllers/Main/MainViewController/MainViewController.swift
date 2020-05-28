@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewModelController<MainViewModel> {
   
   // MARK: - IBOutlets
   
@@ -18,14 +18,10 @@ class MainViewController: UIViewController {
   
   // MARK: - Private properties
   
-  private var viewModel: MainViewModel!
-  
   // MARK: View controller lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    viewModel = MainViewModel(services: WeatherServices(fetcher: Fetcher(networking: HttpClient())))
     
     bindTextToSearchText()
     observeForStatus()
@@ -36,6 +32,7 @@ class MainViewController: UIViewController {
   private func bindTextToSearchText() {
     appInput.text.orEmpty
       .bind(to: viewModel.searchText)
+      .disposed(by: disposeBag)
   }
   
   private func observeForStatus() {
@@ -43,12 +40,14 @@ class MainViewController: UIViewController {
       .subscribe(onNext: { cities in
         self.citiesView.add(items: cities)
       })
+      .disposed(by: disposeBag)
   }
   
   private func bindCurrentPageToCurrentTime() {
     citiesView.currentPage
       .withLatestFrom(viewModel.status, resultSelector: { $1[$0!].timezone })
       .bind(to: timeView.rx.currentTime)
+      .disposed(by: disposeBag)
   }
   
   private func observeForAppInputAction() {

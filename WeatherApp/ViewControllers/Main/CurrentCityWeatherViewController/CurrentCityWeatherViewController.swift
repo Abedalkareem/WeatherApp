@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class CurrentCityWeatherViewController: UIViewController {
+class CurrentCityWeatherViewController: BaseViewModelController<CurrentCityWeatherViewModel> {
   
   // MARK: - IBOutlets
   
@@ -20,14 +20,10 @@ class CurrentCityWeatherViewController: UIViewController {
   
   // MARK: - Private properties
   
-  var viewModel: CurrentCityWeatherViewModel!
-  
   // MARK: View controller lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    viewModel = CurrentCityWeatherViewModel(services: WeatherServices(fetcher: Fetcher(networking: HttpClient())), locationProvider: LocationHelper())
     
     setup()
     registerCells()
@@ -47,24 +43,26 @@ class CurrentCityWeatherViewController: UIViewController {
   }
   
   private func bindCityToLabel() {
-    viewModel.city.bind(to: cityNameLabel.rx.text)
+    viewModel.city
+      .bind(to: cityNameLabel.rx.text)
+      .disposed(by: disposeBag)
   }
   
   private func bindStatusToTableView() {
     viewModel.status
       .bind(to: tableView.rx.items(cellType: DayWeatherTableViewCell.self)) { _, model, cell in
-        cell.setupWith(item: model)
+        cell.setupWith(day: model.key, items: model.value)
     }
-    
-    
+    .disposed(by: disposeBag)
   }
   
   private func observeForDisplayCell() {
     tableView.rx.willDisplayCell
-    .subscribe(onNext: { item in
-      item.cell.alpha = 0
-      item.cell.animate([.fadeIn()])
-    })
+      .subscribe(onNext: { item in
+        item.cell.alpha = 0
+        item.cell.animate([.fadeIn()])
+      })
+      .disposed(by: disposeBag)
   }
   
   // MARK: - Instance

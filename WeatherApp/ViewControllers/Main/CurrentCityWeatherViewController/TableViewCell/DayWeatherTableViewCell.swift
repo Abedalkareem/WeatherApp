@@ -69,9 +69,9 @@ class DayWeatherTableViewCell: UITableViewCell {
   
   // MARK: - Setup
   
-  func setupWith(item: (day: String, items: [CityWeatherViewModel])) {
-    self.items.on(.next(item.items))
-    dayLabel.text = item.day
+  func setupWith(day: String, items: [CityWeatherViewModel]) {
+    self.items.on(.next(items))
+    dayLabel.text = day
   }
   
 }
