@@ -97,6 +97,8 @@ class TimeView: UIView {
   
 }
 
+// MARK: - Reactive
+
 extension Reactive where Base: TimeView {
   var currentTime: Binder<Int?> {
     return Binder(self.base) { view, timeZone in
