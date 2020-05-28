@@ -10,14 +10,13 @@ import UIKit
 
 class HourWeatherCollectionViewCell: UICollectionViewCell {
   
+  // MARK: - IBOutlets
+  
   @IBOutlet weak var weatherImageView: UIImageView!
   @IBOutlet weak var weatherLabel: AppLabel!
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  // MARK: - Setup
 
-  }
-  
   func setupWith(_ item: CityWeatherViewModel) {
     weatherImageView.image = item.image
     weatherLabel.text = item.weather

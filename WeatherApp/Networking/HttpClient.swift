@@ -34,7 +34,6 @@ class HttpClient: NSObject, NetworkingType {
       }
       DispatchQueue.main.async {
         completion(nil, data)
-        print(String(data: data!, encoding: .utf8) ?? "")
       }
     })
     .resume()

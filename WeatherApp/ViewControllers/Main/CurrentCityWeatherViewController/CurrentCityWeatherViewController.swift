@@ -27,21 +27,36 @@ class CurrentCityWeatherViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
     viewModel = CurrentCityWeatherViewModel(services: WeatherServices(fetcher: Fetcher(networking: HttpClient())), locationProvider: LocationHelper())
     
-    viewModel.requestAuthorization()
+    setup()
+    registerCells()
     
-    viewModel.city.bind(to: cityNameLabel.rx.text)
-    
-    timeView.setCurrentTime()
-    
+    bindCityToLabel()
+    bindStatusToTableView()
+  }
+  
+  private func registerCells() {
     tableView.register(DayWeatherTableViewCell.self)
+  }
+  
+  private func setup() {
+    viewModel.requestAuthorization()
+    timeView.setCurrentTime()
+  }
+  
+  private func bindCityToLabel() {
+    viewModel.city.bind(to: cityNameLabel.rx.text)
+  }
+  
+  private func bindStatusToTableView() {
     viewModel.status
       .bind(to: tableView.rx.items(cellType: DayWeatherTableViewCell.self)) { _, model, cell in
         cell.setupWith(item: model)
     }
   }
+  
+  // MARK: - Instance
   
   static func instance() -> CurrentCityWeatherViewController {
     let viewController = UIStoryboard.create(storyboard: .main,

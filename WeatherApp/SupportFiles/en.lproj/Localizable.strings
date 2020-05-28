@@ -1,10 +1,10 @@
 /* 
-  Localizable.strings
-  WeatherApp
-
-  Created by abedalkareem omreyh on 27/05/2020.
-  Copyright © 2020 abedalkareem omreyh. All rights reserved.
-*/
+ Localizable.strings
+ WeatherApp
+ 
+ Created by abedalkareem omreyh on 27/05/2020.
+ Copyright © 2020 abedalkareem omreyh. All rights reserved.
+ */
 
 "app_title" = "Weather App";
 "app_slogan" = "Plan your day confidently!";
@@ -12,3 +12,4 @@
 "min_max" = "Min, Max";
 "wind_speed" = "Wind Speed";
 "description" = "Description";
+"current_city_weather_description" = "The weather for last days for each 3 hour starting from 00:00 AM";

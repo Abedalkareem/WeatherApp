@@ -58,8 +58,8 @@ class CurrentCityWeatherViewModel: ViewModelType, Loadable, ErrorEmitable {
   
   private func observeForUserCurrentLocation() {
     locationProvider.currentUserLocation
-      .debounce(RxTimeInterval.seconds(2), scheduler: MainScheduler.asyncInstance)
       .filter({ $0 != nil })
+      .take(1)
       .emitTo(loadingTrigger, value: .init(true, type: .fullScreen))
       .flatMap({ location in
         self.services.forecastForLatLon(location!.coordinate.latitude,
@@ -79,6 +79,7 @@ class CurrentCityWeatherViewModel: ViewModelType, Loadable, ErrorEmitable {
   private func observeForUserAddress() {
     locationProvider.currentUserLocation
       .filter({ $0 != nil })
+      .take(1)
       .flatMap({ self.locationProvider.getAddressFrom(location: $0!) })
       .map({ $0.locality! })
       .bind(to: cityTrigger)

@@ -16,7 +16,6 @@ class AppTime {
       calendar.timeZone = timeZone
     }
     let hour = calendar.component(.hour, from: Date())
-    print(hour)
     switch hour {
     case 0...12:
       return .morning
