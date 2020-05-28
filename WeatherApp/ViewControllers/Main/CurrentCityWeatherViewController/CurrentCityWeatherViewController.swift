@@ -7,24 +7,45 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CurrentCityWeatherViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  
+  // MARK: - IBOutlets
+  
+  @IBOutlet private weak var timeView: TimeView!
+  @IBOutlet private weak var cityNameLabel: AppLabel!
+  @IBOutlet private weak var tableView: UITableView!
+  
+  // MARK: Private properties
+  
+  var viewModel: CurrentCityWeatherViewModel!
+  
+  // MARK: View controller lifecycle
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    viewModel = CurrentCityWeatherViewModel(services: WeatherServices(fetcher: Fetcher(networking: HttpClient())), locationProvider: LocationHelper())
+    
+    viewModel.requestAuthorization()
+    
+    viewModel.city.bind(to: cityNameLabel.rx.text)
+    
+    timeView.setCurrentTime()
+    
+    tableView.register(DayWeatherTableViewCell.self)
+    viewModel.status
+      .bind(to: tableView.rx.items(cellType: DayWeatherTableViewCell.self)) { _, model, cell in
+        cell.setupWith(item: model)
     }
-    */
-
+  }
+  
+  static func instance() -> CurrentCityWeatherViewController {
+    let viewController = UIStoryboard.create(storyboard: .main,
+                                             controller: CurrentCityWeatherViewController.self)
+    return viewController
+  }
 }

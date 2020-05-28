@@ -33,8 +33,7 @@ class SplashViewController: UIViewController {
   }
   
   private func showNextViewController() {
-    let viewController = UIStoryboard.create(storyboard: .main,
-                                             controller: MainViewController.self)
+    let viewController = MainViewController.instance()
     setRootViewController(viewController: viewController,
                           animated: true)
   }

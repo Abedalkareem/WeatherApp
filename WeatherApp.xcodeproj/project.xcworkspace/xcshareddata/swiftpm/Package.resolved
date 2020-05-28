@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "RxCoreLocation",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxCoreLocation",
+        "state": {
+          "branch": null,
+          "revision": "9b7366f226a70cacf529e921f9c6fffed0d1e932",
+          "version": "1.4.2"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift",
         "state": {

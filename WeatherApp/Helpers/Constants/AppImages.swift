@@ -11,6 +11,7 @@ import Foundation
 enum Images: String {
   case sun
   case cloud
+  case cloudBlue = "cloud_blue"
   case moon
   case target
   case snowy

@@ -13,14 +13,16 @@ class CityWeatherViewModel {
   let condition: WeatherConditions
   let name: String
   let description: String
-  let wather: String
+  let minMaxWeather: String
+  let weather: String
   let windSpeed: String
-  let timezone: Int
+  let timezone: Int?
+  let date: Date
 
   var image: UIImage {
     switch condition {
     case .clouds:
-      return UIImage(image: .cloud)
+      return UIImage(image: .cloudBlue)
     case .clear:
       return UIImage(image: .sun)
     case .snow:
@@ -46,11 +48,13 @@ class CityWeatherViewModel {
   
   init(cityWeather: CityWeather) {
     condition = cityWeather.weather.first?.condition ?? .unknown
-    name = cityWeather.name
+    name = cityWeather.name ?? ""
     description = cityWeather.weather.first?.description ?? ""
-    wather = "\(cityWeather.temp.min) - \(cityWeather.temp.max)"
+    minMaxWeather = "\(cityWeather.temp.min) - \(cityWeather.temp.max)"
+    weather = "\(cityWeather.temp.value)"
     windSpeed = "\(cityWeather.wind.speed)"
     timezone = cityWeather.timezone
+    date = cityWeather.date
   }
   
 }

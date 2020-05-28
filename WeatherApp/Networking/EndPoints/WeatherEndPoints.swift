@@ -10,7 +10,7 @@ import Foundation
 
 enum WeatherEndPoints: EndPoint {
   case weatherForCity(_ city: String)
-  case forecastForLatLon(_ lat: String, _ lon: String)
+  case forecastForLatLon(_ lat: Double, _ lon: Double)
   
   var method: HTTPMethod {
     switch self {
@@ -26,8 +26,8 @@ enum WeatherEndPoints: EndPoint {
   }
   var parameters: Parameters {
     switch self {
-    case let .weatherForCity(city): return ["q":city]
-    case let .forecastForLatLon(lat, lon): return ["lat": lat, "lon": lon]
+    case let .weatherForCity(city): return ["q":city, "units": "metric"]
+    case let .forecastForLatLon(lat, lon): return ["lat": lat, "lon": lon, "units": "metric"]
     }
   }
   

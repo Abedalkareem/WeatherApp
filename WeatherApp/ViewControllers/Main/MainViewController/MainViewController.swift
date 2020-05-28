@@ -39,6 +39,10 @@ class MainViewController: UIViewController {
       .withLatestFrom(viewModel.status, resultSelector: { $1[$0!].timezone })
       .bind(to: timeView.rx.currentTime)
 
+    appInput.actionDidPress {
+      let viewController = CurrentCityWeatherViewController.instance()
+      self.present(viewController, animated: true, completion: nil)
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -46,4 +50,10 @@ class MainViewController: UIViewController {
     
   }
   
+  
+  static func instance() -> MainViewController {
+    let viewController = UIStoryboard.create(storyboard: .main,
+    controller: MainViewController.self)
+    return viewController
+  }
 }

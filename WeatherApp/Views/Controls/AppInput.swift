@@ -12,6 +12,8 @@ import RxCocoa
 @IBDesignable
 class AppInput: UIView {
   
+  typealias ActionPressed = () -> Void
+  
   // MARK: - Properties
   
   @IBInspectable var placeholder: String = "" {
@@ -28,6 +30,7 @@ class AppInput: UIView {
   
   private var textField: UITextField!
   private var button: UIButton!
+  private var actionPressed: ActionPressed?
   
   // MARK: - init
   
@@ -50,6 +53,7 @@ class AppInput: UIView {
     button = UIButton()
     button.setImage(UIImage(image: .target), for: .normal)
     button.tintColor = .secondary
+    button.addTarget(self, action: #selector(doAction), for: .touchUpInside)
     addSubview(button)
     
     makeConstraints()
@@ -82,5 +86,18 @@ class AppInput: UIView {
     super.layoutSublayers(of: layer)
     roundedCorner()
     addShadow()
+  }
+  
+  // MARK: - Action
+  
+  @objc
+  private func doAction() {
+    actionPressed?()
+  }
+  
+  // MARK: - Public
+
+  func actionDidPress(_ actionPressed: @escaping ActionPressed) {
+    self.actionPressed = actionPressed
   }
 }

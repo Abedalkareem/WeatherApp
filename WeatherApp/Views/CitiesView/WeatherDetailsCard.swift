@@ -49,7 +49,7 @@ class WeatherDetailsCard: UIView {
     
     watherValueLabel = AppLabel()
     watherValueLabel.font = .body4
-    watherValueLabel.text = item.wather
+    watherValueLabel.text = item.minMaxWeather
     watherValueLabel.textColor = .secondary
     watherValueLabel.textAlignment = .right
     addSubview(watherValueLabel)

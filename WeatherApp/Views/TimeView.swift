@@ -72,7 +72,7 @@ class TimeView: UIView {
   
   // MARK: - Private
 
-  fileprivate func setCurrentTime(with timeZone: Int?) {
+  func setCurrentTime(with timeZone: Int? = nil) {
     gradientView.backgroundType = appTime.getCurrentTime(with: timeZone)
   }
   
@@ -98,7 +98,7 @@ class TimeView: UIView {
 }
 
 extension Reactive where Base: TimeView {
-  var currentTime: Binder<Int> {
+  var currentTime: Binder<Int?> {
     return Binder(self.base) { view, timeZone in
       view.setCurrentTime(with: timeZone)
     }
