@@ -50,7 +50,8 @@ class MainViewModel: ViewModelType, Loadable, ErrorEmitable {
   
   func observeForSearchText() {
     searchText
-      .map({ $0.components(separatedBy: ",") })
+      .map({ $0.components(separatedBy: ",")
+        .filter({ !$0.trimmingCharacters(in: .whitespaces).isEmpty }) })
       .debounce(RxTimeInterval.seconds(2), scheduler: MainScheduler.asyncInstance)
       .emitTo(loadingTrigger, value: .init(true, type: .fullScreen))
       .flatMap({ cities -> Observable<[String]> in
@@ -59,7 +60,7 @@ class MainViewModel: ViewModelType, Loadable, ErrorEmitable {
         }
         return Observable.just(cities)
       })
-      .flatMap({ cities in
+      .flatMap({ [unowned self] cities in
         Observable.zip(cities.map({ self.services.weatherForCity($0) }))
           .emitErrorTo(self.errorTrigger)
           .catchError()

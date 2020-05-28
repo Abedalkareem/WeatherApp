@@ -18,7 +18,7 @@ class CurrentCityWeatherViewController: UIViewController {
   @IBOutlet private weak var cityNameLabel: AppLabel!
   @IBOutlet private weak var tableView: UITableView!
   
-  // MARK: Private properties
+  // MARK: - Private properties
   
   var viewModel: CurrentCityWeatherViewModel!
   
@@ -34,6 +34,7 @@ class CurrentCityWeatherViewController: UIViewController {
     
     bindCityToLabel()
     bindStatusToTableView()
+    observeForDisplayCell()
   }
   
   private func registerCells() {
@@ -54,6 +55,16 @@ class CurrentCityWeatherViewController: UIViewController {
       .bind(to: tableView.rx.items(cellType: DayWeatherTableViewCell.self)) { _, model, cell in
         cell.setupWith(item: model)
     }
+    
+    
+  }
+  
+  private func observeForDisplayCell() {
+    tableView.rx.willDisplayCell
+    .subscribe(onNext: { item in
+      item.cell.alpha = 0
+      item.cell.animate([.fadeIn()])
+    })
   }
   
   // MARK: - Instance

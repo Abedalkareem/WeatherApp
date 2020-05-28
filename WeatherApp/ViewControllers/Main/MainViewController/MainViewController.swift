@@ -16,44 +16,53 @@ class MainViewController: UIViewController {
   @IBOutlet private weak var appInput: AppInput!
   @IBOutlet private weak var citiesView: CitiesView!
   
-  // MARK: Private properties
+  // MARK: - Private properties
   
-  var viewModel: MainViewModel!
+  private var viewModel: MainViewModel!
   
   // MARK: View controller lifecycle
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-        
+    
     viewModel = MainViewModel(services: WeatherServices(fetcher: Fetcher(networking: HttpClient())))
     
+    bindTextToSearchText()
+    observeForStatus()
+    bindCurrentPageToCurrentTime()
+    observeForAppInputAction()
+  }
+  
+  private func bindTextToSearchText() {
     appInput.text.orEmpty
       .bind(to: viewModel.searchText)
-    
+  }
+  
+  private func observeForStatus() {
     viewModel.status
       .subscribe(onNext: { cities in
         self.citiesView.add(items: cities)
       })
-    
+  }
+  
+  private func bindCurrentPageToCurrentTime() {
     citiesView.currentPage
       .withLatestFrom(viewModel.status, resultSelector: { $1[$0!].timezone })
       .bind(to: timeView.rx.currentTime)
-
+  }
+  
+  private func observeForAppInputAction() {
     appInput.actionDidPress {
       let viewController = CurrentCityWeatherViewController.instance()
       self.present(viewController, animated: true, completion: nil)
     }
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-  }
-  
+  // MARK: - Instance
   
   static func instance() -> MainViewController {
     let viewController = UIStoryboard.create(storyboard: .main,
-    controller: MainViewController.self)
+                                             controller: MainViewController.self)
     return viewController
   }
 }

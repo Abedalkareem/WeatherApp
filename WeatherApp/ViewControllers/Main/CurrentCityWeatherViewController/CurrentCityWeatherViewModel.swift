@@ -61,9 +61,12 @@ class CurrentCityWeatherViewModel: ViewModelType, Loadable, ErrorEmitable {
       .filter({ $0 != nil })
       .take(1)
       .emitTo(loadingTrigger, value: .init(true, type: .fullScreen))
-      .flatMap({ location in
-        self.services.forecastForLatLon(location!.coordinate.latitude,
-                                        location!.coordinate.longitude)
+      .flatMap({ [weak self] location -> Observable<[CityWeather]> in
+        guard let self = self else {
+          return Observable.empty()
+        }
+        return self.services.forecastForLatLon(location!.coordinate.latitude,
+                                               location!.coordinate.longitude)
           .emitErrorTo(self.errorTrigger)
           .catchError()
       })
@@ -80,7 +83,7 @@ class CurrentCityWeatherViewModel: ViewModelType, Loadable, ErrorEmitable {
     locationProvider.currentUserLocation
       .filter({ $0 != nil })
       .take(1)
-      .flatMap({ self.locationProvider.getAddressFrom(location: $0!) })
+      .flatMap({ [weak self] in self?.locationProvider.getAddressFrom(location: $0!) ?? Observable.empty() })
       .map({ $0.locality! })
       .bind(to: cityTrigger)
       .disposed(by: disposeBag)
