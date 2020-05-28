@@ -44,9 +44,9 @@ class CurrentCityWeatherViewModel: ViewModelType, Loadable, ErrorEmitable {
     error = errorPublishSubject.asObservable()
     errorTrigger = errorPublishSubject.asObserver()
     
-    let statusPublishSubject = PublishSubject<[String: [CityWeatherViewModel]]>()
-    status = statusPublishSubject.asObservable()
-    statusTrigger = statusPublishSubject.asObserver()
+    let statusBehaviorSubject = BehaviorSubject<[String: [CityWeatherViewModel]]>(value: [:])
+    status = statusBehaviorSubject.asObservable()
+    statusTrigger = statusBehaviorSubject.asObserver()
     
     let cityPublishSubject = PublishSubject<String>()
     city = cityPublishSubject.asObservable()

@@ -61,6 +61,7 @@ class Fetcher: FetcherType {
           let item = try decoder.decode(T.self, from: data)
           observer.on(.next(item))
         } catch {
+          print(error.localizedDescription)
           observer.on(.error(error))
         }
       }
