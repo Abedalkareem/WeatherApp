@@ -13,6 +13,7 @@ struct CityWeather {
   let name: String
   let temp: Temp
   let wind: Wind
+  let timezone: Int
 }
 
 extension CityWeather: Decodable {
@@ -21,5 +22,6 @@ extension CityWeather: Decodable {
     case name
     case temp = "main"
     case wind
+    case timezone
   }
 }

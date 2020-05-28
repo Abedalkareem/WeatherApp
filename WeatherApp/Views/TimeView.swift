@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 @IBDesignable
 class TimeView: UIView {
@@ -68,11 +70,13 @@ class TimeView: UIView {
     secondMovingCloudView.frame = bounds
   }
   
-  // MARK: - Public
-  
-  func setCurrentTime() {
-    gradientView.backgroundType = appTime.getCurrentTime()
+  // MARK: - Private
+
+  fileprivate func setCurrentTime(with timeZone: Int?) {
+    gradientView.backgroundType = appTime.getCurrentTime(with: timeZone)
   }
+  
+  // MARK: - Public
   
   func animate(completion: (() -> Void)? = nil) {
     self.movingSunView.move(duration: animationDuration * 0.7)
@@ -91,4 +95,12 @@ class TimeView: UIView {
     }
   }
   
+}
+
+extension Reactive where Base: TimeView {
+  var currentTime: Binder<Int> {
+    return Binder(self.base) { view, timeZone in
+      view.setCurrentTime(with: timeZone)
+    }
+  }
 }

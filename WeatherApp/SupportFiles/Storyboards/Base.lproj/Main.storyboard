@@ -10,7 +10,6 @@
         <!--Main View Controller-->
         <scene sceneID="42R-u1-hk9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NED-rp-Gww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MainViewController" id="Syx-UV-ghH" customClass="MainViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jma-8x-yGT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -34,7 +33,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFj-Xh-4u7" customClass="CitiesView" customModule="WeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="116" width="374" height="682"/>
+                                        <rect key="frame" x="0.0" y="116" width="414" height="682"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -43,10 +42,10 @@
                                     <constraint firstItem="oFj-Xh-4u7" firstAttribute="top" secondItem="GY1-zl-3yC" secondAttribute="bottom" constant="20" id="1Ik-RD-NAH"/>
                                     <constraint firstAttribute="bottom" secondItem="oFj-Xh-4u7" secondAttribute="bottom" constant="20" id="3kf-dF-fri"/>
                                     <constraint firstItem="GY1-zl-3yC" firstAttribute="top" secondItem="pkG-7F-2y7" secondAttribute="top" constant="30" id="7fh-b6-inr"/>
-                                    <constraint firstItem="oFj-Xh-4u7" firstAttribute="leading" secondItem="pkG-7F-2y7" secondAttribute="leading" constant="20" id="9uf-au-f0f"/>
+                                    <constraint firstItem="oFj-Xh-4u7" firstAttribute="leading" secondItem="pkG-7F-2y7" secondAttribute="leading" id="9uf-au-f0f"/>
                                     <constraint firstItem="GY1-zl-3yC" firstAttribute="centerX" secondItem="pkG-7F-2y7" secondAttribute="centerX" id="KHQ-Uq-vrI"/>
                                     <constraint firstItem="GY1-zl-3yC" firstAttribute="leading" secondItem="pkG-7F-2y7" secondAttribute="leading" constant="20" id="Rsu-38-lgh"/>
-                                    <constraint firstAttribute="trailing" secondItem="oFj-Xh-4u7" secondAttribute="trailing" constant="20" id="crn-Mb-UIf"/>
+                                    <constraint firstAttribute="trailing" secondItem="oFj-Xh-4u7" secondAttribute="trailing" id="crn-Mb-UIf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -64,9 +63,12 @@
                         <viewLayoutGuide key="safeArea" id="Gg7-Eu-csg"/>
                     </view>
                     <connections>
+                        <outlet property="appInput" destination="GY1-zl-3yC" id="ymF-22-IOK"/>
+                        <outlet property="citiesView" destination="oFj-Xh-4u7" id="sj0-io-sU3"/>
                         <outlet property="timeView" destination="8WU-2c-vqO" id="SYG-AE-bZE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NED-rp-Gww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-971.01449275362324" y="-364.28571428571428"/>
         </scene>

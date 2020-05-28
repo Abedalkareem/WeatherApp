@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxCocoa
 
 @IBDesignable
 class AppInput: UIView {
@@ -15,11 +16,12 @@ class AppInput: UIView {
   
   @IBInspectable var placeholder: String = "" {
     didSet {
-      let bundle = Bundle(for: type(of: self))
-      textField.placeholder = bundle.localizedString(forKey: placeholder,
-                                                     value: "",
-                                                     table: nil)
+      textField.placeholder = placeholder.localized
     }
+  }
+  
+  var text: ControlProperty<String?> {
+    textField.rx.text
   }
   
   // MARK: Private properties
@@ -74,6 +76,8 @@ class AppInput: UIView {
     ])
   }
   
+  // MARK: - View lifecycle
+
   override func layoutSublayers(of layer: CALayer) {
     super.layoutSublayers(of: layer)
     roundedCorner()

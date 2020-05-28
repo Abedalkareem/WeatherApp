@@ -18,10 +18,8 @@ class CityView: UIView {
   
   private var titleLabel: AppLabel!
   private var weatherImageView: UIImageView!
-  private var watherLabel: AppLabel!
-  private var watherDescriptionLabel: AppLabel!
-  private var windLabel: AppLabel!
-
+  private var weatherDetailsCard: WeatherDetailsCard!
+  
   // MARK: - init
   
   init(item: CityWeatherViewModel) {
@@ -39,36 +37,53 @@ class CityView: UIView {
     
     weatherImageView = UIImageView()
     weatherImageView.image = item.image
+    weatherImageView.contentMode = .scaleAspectFit
     addSubview(weatherImageView)
     
     titleLabel = AppLabel()
-    titleLabel.font = .title1
+    titleLabel.font = .appLogo
     titleLabel.text = item.name
     titleLabel.textColor = .primary
+    titleLabel.textAlignment = .center
     addSubview(titleLabel)
     
-    watherLabel = AppLabel()
-    watherLabel.font = .body3
-    watherLabel.text = item.wather
-    watherLabel.textColor = .primary
-    addSubview(watherLabel)
+    weatherDetailsCard = WeatherDetailsCard(item: item)
+    addSubview(weatherDetailsCard)
     
-    watherDescriptionLabel = AppLabel()
-    watherDescriptionLabel.font = .body2
-    watherDescriptionLabel.text = item.description
-    watherDescriptionLabel.textColor = .primary
-    addSubview(watherDescriptionLabel)
-
-
-    windLabel = AppLabel()
-    windLabel.font = .body2
-    windLabel.text = item.windSpeed
-    windLabel.textColor = .primary
-    addSubview(windLabel)
+    makeConstraints()
   }
   
-  override func layoutSublayers(of layer: CALayer) {
-    super.layoutSublayers(of: layer)
-    addShadow()
+  private func makeConstraints() {
+    
+    translatesAutoresizingMaskIntoConstraints = false
+    
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+    NSLayoutConstraint.activate([
+      titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+      titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+      titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+    ])
+    
+    weatherImageView.translatesAutoresizingMaskIntoConstraints = false
+    weatherImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+    weatherImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+    NSLayoutConstraint.activate([
+      weatherImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+                                            constant: 20),
+      weatherImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      weatherImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      weatherImageView.bottomAnchor.constraint(equalTo: weatherDetailsCard.topAnchor,
+                                               constant: -30)
+    ])
+    
+    weatherDetailsCard.translatesAutoresizingMaskIntoConstraints = false
+    weatherDetailsCard.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+    NSLayoutConstraint.activate([
+      weatherDetailsCard.bottomAnchor.constraint(equalTo: bottomAnchor),
+      weatherDetailsCard.trailingAnchor.constraint(equalTo: trailingAnchor),
+      weatherDetailsCard.leadingAnchor.constraint(equalTo: leadingAnchor),
+    ])
   }
+  
 }

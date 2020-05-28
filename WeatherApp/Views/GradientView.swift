@@ -81,6 +81,8 @@ class GradientView: UIView {
   
 }
 
+// MARK: - CAAnimationDelegate
+
 extension GradientView: CAAnimationDelegate {
   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     if flag {

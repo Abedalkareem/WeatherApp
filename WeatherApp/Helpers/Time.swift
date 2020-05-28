@@ -9,8 +9,14 @@
 import Foundation
 
 class AppTime {
-  func getCurrentTime() -> Time {
-    let hour = Calendar.current.component(.hour, from: Date())
+  func getCurrentTime(with timeZoneInt: Int?) -> Time {
+    var calendar = Calendar(identifier: Calendar.current.identifier)
+    if let timeZoneInt = timeZoneInt,
+      let timeZone = TimeZone(secondsFromGMT: timeZoneInt) {
+      calendar.timeZone = timeZone
+    }
+    let hour = calendar.component(.hour, from: Date())
+    print(hour)
     switch hour {
     case 0...12:
       return .morning

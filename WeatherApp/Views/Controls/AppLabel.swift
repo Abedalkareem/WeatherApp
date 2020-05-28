@@ -15,8 +15,7 @@ class AppLabel: UILabel {
   
   @IBInspectable var localizeKey: String = "" {
     didSet {
-      let bundle = Bundle(for: type(of: self))
-      self.text = bundle.localizedString(forKey: localizeKey, value: "", table: nil)
+      self.text = localizeKey.localized
     }
   }
   

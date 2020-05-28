@@ -31,11 +31,6 @@ extension UIColor {
   static let morningColors = [morningColor1, morningColor2]
   static let nightColors = [nightColor1, nightColor2]
   
-  // MARK: - others
-  static var text: UIColor {
-    return primary
-  }
-  
   
   // MARK: - Functions
   private static func getColor(named: String) -> UIColor? {

@@ -20,8 +20,8 @@ class WeatherServices: ServicesType {
     return fetcher.fetch(endpoint: WeatherEndPoints.weatherForCity(city))
   }
   
-  func forecastForCity(_ city: String) -> Observable<CityWeather> {
-    return fetcher.fetch(endpoint: WeatherEndPoints.forecastForCity(city))
+  func forecastForLatLon(_ lat: String, _ lon: String) -> Observable<CityWeather> {
+    return fetcher.fetch(endpoint: WeatherEndPoints.forecastForLatLon(lat, lon))
   }
   
 }

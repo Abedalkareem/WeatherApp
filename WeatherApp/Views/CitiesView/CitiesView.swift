@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 @IBDesignable
 class CitiesView: UIView {
   
   // MARK: - Properties
+  
+  var currentPage: Observable<Int?> {
+    scrollView.rx.didEndDecelerating
+      .map({ [weak self] in self?.scrollView.currentPage })
+  }
   
   // MARK: Private properties
   
@@ -47,7 +54,6 @@ class CitiesView: UIView {
   
   private func makeConstraints() {
     scrollView.translatesAutoresizingMaskIntoConstraints = false
-    
     NSLayoutConstraint.activate([
       scrollView.topAnchor.constraint(equalTo: topAnchor),
       scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -56,14 +62,7 @@ class CitiesView: UIView {
     ])
   }
   
-  private func add(items: [CityWeatherViewModel]) {
-    self.items = items
-    scrollView.subviews.forEach({ $0.removeFromSuperview() })
-    
-    items
-      .map(CityView.init(item:))
-      .forEach(scrollView.addSubview)
-  }
+  // MARK: - View lifecycle
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -76,21 +75,55 @@ class CitiesView: UIView {
       return
     }
     let numberOfPages: Int = items.count - 1
+    
+    for index in 0...numberOfPages{
+      let view = scrollView.subviews[index]
+      makeConstraintFor(view: view, with: index, and: numberOfPages)
+    }
+  }
+  
+  private func makeConstraintFor(view: UIView, with index: Int, and numberOfPages: Int) {
     let padding: CGFloat = 10
     let viewWidth = scrollView.bounds.size.width - 2 * padding
     let viewHeight = scrollView.bounds.size.height - 2 * padding
-    
-    var x: CGFloat = 0
-    
-    for i in 0...numberOfPages{
-      let view = scrollView.subviews[i]
-      view.frame =  CGRect(x: x + padding,
-                           y: padding,
-                           width: viewWidth,
-                           height: viewHeight)
-      x = view.frame.origin.x + viewWidth + padding
+    let subviews = scrollView.subviews
+
+    var leading: NSLayoutConstraint!
+    if index == 0 {
+      leading = view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,
+                                              constant: padding)
+    } else if index == numberOfPages {
+      leading = view.leadingAnchor.constraint(equalTo: subviews[index - 1].trailingAnchor,
+                                              constant: padding)
+    } else {
+      leading = view.leadingAnchor.constraint(equalTo: subviews[index - 1].trailingAnchor,
+                                              constant: padding)
     }
     
-    scrollView.contentSize = CGSize(width: x, height: scrollView.bounds.size.height)
+    if numberOfPages == 1 || index == numberOfPages {
+      view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor,
+                                     constant: -padding).isActive = true
+    }
+    
+    NSLayoutConstraint.activate([
+      view.widthAnchor.constraint(equalToConstant: viewWidth),
+      view.heightAnchor.constraint(equalToConstant: viewHeight),
+      view.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: padding),
+      view.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: padding),
+      leading,
+    ])
+  }
+  
+  // MARK: - Public
+  
+  func add(items: [CityWeatherViewModel]) {
+    self.items = items
+    scrollView.subviews.forEach({ $0.removeFromSuperview() })
+    
+    items
+      .map(CityView.init(item:))
+      .forEach(scrollView.addSubview)
+    
+    setNeedsLayout()
   }
 }

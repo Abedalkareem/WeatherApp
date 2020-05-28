@@ -15,7 +15,8 @@ class CityWeatherViewModel {
   let description: String
   let wather: String
   let windSpeed: String
-  
+  let timezone: Int
+
   var image: UIImage {
     switch condition {
     case .clouds:
@@ -49,6 +50,7 @@ class CityWeatherViewModel {
     description = cityWeather.weather.first?.description ?? ""
     wather = "\(cityWeather.temp.min) - \(cityWeather.temp.max)"
     windSpeed = "\(cityWeather.wind.speed)"
+    timezone = cityWeather.timezone
   }
   
 }
