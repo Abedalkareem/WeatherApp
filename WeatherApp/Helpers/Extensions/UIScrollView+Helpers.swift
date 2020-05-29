@@ -10,6 +10,6 @@ import UIKit
 
 extension UIScrollView {
   var currentPage: Int {
-    return Int(contentOffset.x / bounds.width)
+    return Int(round(contentOffset.x / bounds.width))
   }
 }

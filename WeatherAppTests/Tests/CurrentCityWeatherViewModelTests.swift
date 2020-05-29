@@ -9,6 +9,7 @@
 @testable import WeatherApp
 import XCTest
 import RxSwift
+import RxBlocking
 
 class CurrentCityWeatherViewModelTests: XCTestCase {
   
@@ -20,18 +21,7 @@ class CurrentCityWeatherViewModelTests: XCTestCase {
   }
   
   func testWeatherShouldBeFor5Days() throws {
-    
-    let expectation = self.expectation(description: "wait current city")
-    var weather: [String: [CityWeatherViewModel]]?
-    
-    viewModel.status.subscribe(onNext: {
-      weather = $0
-      expectation.fulfill()
-    })
-      .disposed(by: disposeBag)
-    
-    waitForExpectations(timeout: 5)
-    
+    let weather = try? viewModel.status.toBlocking().first()
     XCTAssertEqual(weather?.count ?? 0, 5)
   }
   
