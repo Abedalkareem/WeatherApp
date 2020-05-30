@@ -66,7 +66,13 @@ enum Keys {
 
 ## Run the app tests
 
-TODO
+- Install Slather.
+
+``` Bash
+gem install slather
+```
+
+
 
 ## Dependencies
 

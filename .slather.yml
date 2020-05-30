@@ -1,0 +1,6 @@
+# .slather.yml
+
+coverage_service: html
+xcodeproj: ./WeatherApp.xcodeproj
+scheme: WeatherApp
+output_directory: ./test-reports
