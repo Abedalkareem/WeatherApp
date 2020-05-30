@@ -72,7 +72,13 @@ enum Keys {
 gem install slather
 ```
 
+Navigate to the project folder and run the following command:
 
+``` Bash
+slather
+```
+
+A code coverage folder will be generated in the project folder with the name `test-reports`, open the `index.html` file.
 
 ## Dependencies
 
